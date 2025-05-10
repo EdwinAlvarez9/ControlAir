@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Control Air</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome para íconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Barra de navegación -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+        <div class="container">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+             <a class="navbar-brand" href="#">
+                <img src="/imagenes/logo clean air.png" alt="ControlAir Logo" width="60" height="50" class="d-inline-block align-top me-2">
+                ControlAir
+            </a>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#inicio">Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#problematica">Problemática</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#objetivo">Objetivo</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#arquitectura">Arquitectura</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#sensores">Sensores</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#hardware">Hardware</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#graficas">Gráficas</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Sección Hero -->
+    <section id="inicio" class="hero-section text-center">
+        <div class="container">
+            <div class="d-flex justify-content-center align-items-center mb-4">
+                <img src="/imagenes/nube feliz.webp" alt="Logo" class="project-logo me-3" width="100px">
+                <h1 class="display-4 fw-bold">Control Air</h1>
+                <img src="/imagenes/nube feliz.webp" alt="Logo" class="project-logo ms-3" width="100px">
+            </div>
+            <p class="lead">Sistema de Monitoreo de Calidad del Aire</p>
+            <div class="mt-4">
+                <a href="#problematica" class="btn btn-light btn-lg me-2">Conoce más</a>
+                <a href="#graficas" class="btn btn-outline-light btn-lg">Ver datos</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección Problemática -->
+    <section id="problematica" class="py-5">
+        <div class="container">
+            <h2 class="section-title">Problemática</h2>
+            <div class="row">
+                <div class="col-md-6">
+                    <p>En las zonas cercanas a industrias del estado de Hidalgo, la calidad del aire representa un riesgo para la salud de los habitantes y el medio ambiente debido a la emisión constante de contaminantes. La falta de sistemas de monitoreo en tiempo real dificulta la detección temprana de niveles peligrosos, lo que incrementa la exposición a agentes tóxicos y limita la capacidad de actuar de manera rápida y efectiva.</p>
+                    <p>Esta situación no solo afecta la salud pública, sino que también contribuye al deterioro ambiental y a la falta de información precisa para la toma de decisiones preventivas.</p>
+                </div>
+                <div class="col-md-6">
+                    <img src="/imagenes/contaminación.jpg" alt="Contaminación industrial" class="img-fluid rounded shadow">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección Objetivo -->
+    <section id="objetivo" class="py-5 bg-light">
+        <div class="container">
+            <h2 class="section-title">Objetivo</h2>
+            <div class="row align-items-center">
+                <div class="col-md-6 order-md-2">
+                    <div class="card">
+                        <div class="card-body">
+                            <p class="card-text">Desarrollar e implementar un sistema de medición y monitoreo en tiempo real de la calidad del aire en zonas industriales del estado de Hidalgo, utilizando sensores conectados a un sistema de comunicación basado en tecnologías LoRa, ESP NOW y redes móviles 4G, para enviar los datos a un broker y visualizarlos mediante una plataforma Node-RED, permitiendo un seguimiento continuo y una respuesta rápida ante posibles niveles críticos de contaminación.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 order-md-1">
+                    <img src="/imagenes/ciudad limpia.jpg" alt="Sistema de monitoreo" class="img-fluid rounded shadow">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección Arquitectura -->
+    <section id="arquitectura" class="py-5">
+        <div class="container">
+            <h2 class="section-title">Arquitectura del Sistema</h2>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h5 class="card-title">Diagrama del sistema</h5>
+                            <img src="/imagenes/controlair.png" alt="Diagrama del sistema" class="img-fluid mb-3">
+                            <p class="card-text">El sistema está diseñado para capturar datos de calidad del aire mediante sensores específicos, transmitirlos a través de distintas tecnologías de comunicación, y finalmente visualizarlos en un entorno de monitoreo en línea en tiempo real.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h5 class="card-title">Componentes principales</h5>
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item">
+                                    <strong>Arduino UNO:</strong> Lectura de sensores MQ-135, MQ-2 y DHT11
+                                </li>
+                                <li class="list-group-item">
+                                    <strong>Heltec LoRa 32 V3:</strong> Transmisión de datos mediante LoRa
+                                </li>
+                                <li class="list-group-item">
+                                    <strong>LilyGO TTGO SIM7600:</strong> Conexión 4G y envío de datos a la nube
+                                </li>
+                                <li class="list-group-item">
+                                    <strong>Node-RED:</strong> Visualización de datos en dashboards
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="row mt-4">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Protocolos de Comunicación</h5>
+                            <div class="row">
+                                <div class="col-md-3 col-6 text-center mb-3">
+                                    <div class="p-3 border rounded">
+                                        <i class="fas fa-exchange-alt fa-3x mb-2 text-primary"></i>
+                                        <h6>UART</h6>
+                                        <p class="small">Comunicación serial entre Arduino y Heltec</p>
+                                    </div>
+                                </div>
+                                <div class="col-md-3 col-6 text-center mb-3">
+                                    <div class="p-3 border rounded">
+                                        <i class="fas fa-wifi fa-3x mb-2 text-primary"></i>
+                                        <h6>LoRa</h6>
+                                        <p class="small">Comunicación inalámbrica de largo alcance</p>
+                                    </div>
+                                </div>
+                                <div class="col-md-3 col-6 text-center mb-3">
+                                    <div class="p-3 border rounded">
+                                        <i class="fas fa-bolt fa-3x mb-2 text-primary"></i>
+                                        <h6>ESP-NOW</h6>
+                                        <p class="small">Protocolo de baja latencia entre ESP32</p>
+                                    </div>
+                                </div>
+                                <div class="col-md-3 col-6 text-center mb-3">
+                                    <div class="p-3 border rounded">
+                                        <i class="fas fa-cloud fa-3x mb-2 text-primary"></i>
+                                        <h6>MQTT</h6>
+                                        <p class="small">Protocolo ligero para IoT</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección Sensores -->
+    <section id="sensores" class="py-5 bg-light">
+        <div class="container">
+            <h2 class="section-title">Sensores Utilizados</h2>
+            <div class="row">
+                <!-- Sensor MQ-135 -->
+                <div class="col-md-4">
+                    <div class="card h-100">
+                        <img src="/imagenes/mq135.jpg" class="card-img-top sensor-img" alt="Sensor MQ-135">
+                        <div class="card-body">
+                            <h5 class="card-title">MQ-135 - Calidad del Aire</h5>
+                            <p class="card-text">Detecta gases como amoníaco (NH3), óxidos de nitrógeno (NOx), alcoholes, benceno, humo y gases nocivos en el aire.</p>
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item"><strong>Voltaje:</strong> 5V DC</li>
+                                <li class="list-group-item"><strong>Consumo:</strong> 150 mA</li>
+                                <li class="list-group-item"><strong>Tiempo de respuesta:</strong>10 segundos</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Sensor MQ-2 -->
+                <div class="col-md-4">
+                    <div class="card h-100">
+                        <img src="/imagenes/mq2.jpg" class="card-img-top sensor-img" alt="Sensor MQ-2">
+                        <div class="card-body">
+                            <h5 class="card-title">MQ-2 - Gases Inflamables</h5>
+                            <p class="card-text">Detecta gases como LPG (gas licuado de petróleo), humo, alcohol, propano, hidrógeno y metano.</p>
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item"><strong>Voltaje:</strong> 5V DC</li>
+                                <li class="list-group-item"><strong>Consumo:</strong> ~150 mA</li>
+                                <li class="list-group-item"><strong>Tiempo de respuesta:</strong> 10 segundos</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Sensor DHT11 -->
+                <div class="col-md-4">
+                    <div class="card h-100">
+                        <img src="/imagenes/sensor polvo.webp" class="card-img-top sensor-img" alt="Sensor DHT11">
+                        <div class="card-body">
+                            <h5 class="card-title">Sensor Gp2y1010au0f</h5>
+                            <p class="card-text">Permite medir de forma sencilla la concentración de polvo en el aire.</p>
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item"><strong>Voltaje:</strong> 5.5V</li>
+                                <li class="list-group-item"><strong>Consumo:</strong> 11 mA durante medición</li>
+                                <li class="list-group-item"><strong>Frecuencia:</strong> 100Hz (10 lectura/segundo)</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección Hardware -->
+    <section id="hardware" class="py-5">
+        <div class="container">
+            <h2 class="section-title">Hardware Utilizado</h2>
+            <div class="row">
+                <!-- Arduino UNO -->
+                <div class="col-md-4">
+                    <div class="card h-100">
+                        <img src="/imagenes/arduino uno.webp" class="card-img-top" alt="Arduino UNO">
+                        <div class="card-body">
+                            <h5 class="card-title">Arduino UNO</h5>
+                            <p class="card-text">Placa de desarrollo basada en el microcontrolador ATmega328P para lectura de sensores.</p>
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item"><strong>Microcontrolador:</strong> ATmega328P</li>
+                                <li class="list-group-item"><strong>Voltaje:</strong> 5V</li>
+                                <li class="list-group-item"><strong>Pines I/O:</strong> 14 digitales, 6 analógicos</li>
+                                <li class="list-group-item"><strong>Memoria:</strong> 32KB Flash, 2KB SRAM</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Heltec LoRa 32 V3 -->
+                <div class="col-md-4">
+                    <div class="card h-100">
+                        <img src="/imagenes/lora heltec.jpg" class="card-img-top" alt="Heltec LoRa 32 V3">
+                        <div class="card-body">
+                            <h5 class="card-title">Heltec LoRa 32 V3</h5>
+                            <p class="card-text">Placa con ESP32, WiFi, Bluetooth y módulo LoRa para transmisión inalámbrica.</p>
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item"><strong>Microcontrolador:</strong> ESP32 (240 MHz)</li>
+                                <li class="list-group-item"><strong>Memoria:</strong> 8MB Flash, 520KB RAM</li>
+                                <li class="list-group-item"><strong>Conectividad:</strong> WiFi, Bluetooth BLE, LoRa</li>
+                                <li class="list-group-item"><strong>Pantalla:</strong> OLED 0.96" integrada</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- LilyGO TTGO SIM7600 -->
+                <div class="col-md-4">
+                    <div class="card h-100">
+                        <img src="/imagenes/lilygo.jpg" class="card-img-top" alt="LilyGO TTGO SIM7600">
+                        <div class="card-body">
+                            <h5 class="card-title">LilyGO TTGO SIM7600</h5>
+                            <p class="card-text">Placa con ESP32 y módem 4G LTE/GPS para conectividad celular.</p>
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item"><strong>Microcontrolador:</strong> ESP32 (240 MHz)</li>
+                                <li class="list-group-item"><strong>Conectividad:</strong> 4G LTE, 3G, 2G, GPS</li>
+                                <li class="list-group-item"><strong>Memoria:</strong> 4MB Flash, 520KB RAM</li>
+                                <li class="list-group-item"><strong>Batería:</strong> Soporte para LiPo 3.7V</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección Gráficas -->
+    <section id="graficas" class="py-5 bg-light">
+        <div class="container">
+            <h2 class="section-title">Datos de Monitoreo</h2>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Niveles de Contaminantes</h5>
+                            <div class="chart-container">
+                                <canvas id="lineChart"></canvas>
+                            </div>
+                            <p class="card-text">Variación de los niveles de contaminantes detectados por los sensores MQ-135 y MQ-2 en las últimas 24 horas.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Distribución de Contaminantes</h5>
+                            <div class="chart-container">
+                                <canvas id="pieChart"></canvas>
+                            </div>
+                            <p class="card-text">Porcentaje de los diferentes tipos de contaminantes detectados en el área de monitoreo.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="row mt-4">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Dashboard en Tiem Real</h5>
+                            <div class="ratio ratio-16x9">
+                                <iframe src="https://via.placeholder.com/800x450?text=Node-RED+Dashboard" allowfullscreen></iframe>
+                            </div>
+                            <div class="mt-3">
+                                <a href="#" class="btn btn-primary">Ver dashboard completo</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <h5>Instituto Tecnológico Superior del Occidente del Estado de Hidalgo</h5>
+                    <p>Ingeniería en Tecnologías de la Información y Comunicaciones</p>
+                </div>
+                <div class="col-md-4">
+                    <h5>Integrantes</h5>
+                    <li>Adrian Moreno Mendez</li>
+                    <li>Edwin Álvarez Hernández</li>
+                    <li>Alinne Hernández Lopez</li>
+                    <li>Adolfo Martinez Costeño</li>
+                    <p>Semestre: 6 Grupo: A</p>
+                </div>
+                <div class="col-md-4">
+                    <h5>Asesor</h5>
+                    <li>Dr. Francisco Javier Cuadros Romero</li>
+                    <p>Periodo: Enero - mayo 2025</p>
+                </div>
+            </div>
+            <hr class="my-4 bg-light">
+            <div class="text-center">
+                <p class="mb-0">© 2025 Control Air. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+    <!-- Bootstrap JS y dependencias -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Chart.js para gráficas -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</body>
+</html>

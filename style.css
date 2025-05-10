@@ -1,0 +1,56 @@
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #c0d6ec;
+            color: #000000;
+        }
+        .navbar-brand img {
+            height: 50px;
+        }
+        .project-logo {
+            height: 70px;
+        }
+        .hero-section {
+            background: linear-gradient(135deg, #4f97e9 0%,#63a2d6 51%,#abd2f3 100%);
+            color: rgb(0, 0, 0);
+            padding: 80px 0;
+            margin-bottom: 30px;
+        }
+        .section-title {
+            border-bottom: 2px solid #67aae1;
+            padding-bottom: 10px;
+            margin-bottom: 30px;
+            color: #2989d8;
+        }
+        .card {
+            margin-bottom: 30px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+        }
+        .sensor-img {
+            max-height: 200px;
+            object-fit: contain;
+            margin: 0 auto;
+            display: block;
+        }
+        .chart-container {
+            height: 400px;
+            margin-bottom: 30px;
+        }
+        footer {
+            background-color: #69acee;
+            color: rgb(19, 19, 19);
+            padding: 30px 0;
+            margin-top: 50px;
+        }
+        @media (max-width: 768px) {
+            .hero-section {
+                padding: 50px 0;
+            }
+            .project-logo {
+                height: 40px;
+            }
+        }
