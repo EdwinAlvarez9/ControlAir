@@ -1,4 +1,3 @@
-// Gráfica de líneas
 const lineCtx = document.getElementById('lineChart').getContext('2d');
 const lineChart = new Chart(lineCtx, {
     type: 'line',
@@ -47,7 +46,6 @@ const lineChart = new Chart(lineCtx, {
     }
 });
 
-// Gráfica de pastel
 const pieCtx = document.getElementById('pieChart').getContext('2d');
 const pieChart = new Chart(pieCtx, {
     type: 'pie',

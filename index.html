@@ -3,14 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Control Air</title>
+    <title>Air Check - Monitoreo de Calidad del Aire</title>
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Font Awesome para íconos -->
+    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+    <!-- CSS personalizado -->
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
     <!-- Barra de navegación -->
@@ -19,216 +20,201 @@
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
-             <a class="navbar-brand" href="#">
-                <img src="/imagenes/logo clean air.png" alt="ControlAir Logo" width="60" height="50" class="d-inline-block align-top me-2">
-                ControlAir
+            <a class="navbar-brand" href="#">
+                <img src="imagenes/logo clean air.png" alt="Air Check Logo" class="navbar-logo" width="60px">
+                Air Check
             </a>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="#inicio">Inicio</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#problematica">Problemática</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#proyecto">Proyecto</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#sensores">Sensores</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#hardware">Hardware</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#ubicacion">Ubicación</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contacto">Contacto</a></li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#inicio">Inicio</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#problematica">Problemática</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#objetivo">Objetivo</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#arquitectura">Arquitectura</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#sensores">Sensores</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#hardware">Hardware</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#graficas">Gráficas</a>
+                        <a class="nav-link user-login" data-bs-toggle="modal" data-bs-target="#authModal">
+                            <i class="fas fa-user"></i>
+                        </a>
                     </li>
                 </ul>
             </div>
         </div>
     </nav>
 
-    <!-- Sección Hero -->
-    <section id="inicio" class="hero-section text-center">
-        <div class="container">
-            <div class="d-flex justify-content-center align-items-center mb-4">
-                <img src="/imagenes/nube feliz.webp" alt="Logo" class="project-logo me-3" width="100px">
-                <h1 class="display-4 fw-bold">Control Air</h1>
-                <img src="/imagenes/nube feliz.webp" alt="Logo" class="project-logo ms-3" width="100px">
+    <!-- Modal de Autenticación -->
+    <div class="modal fade" id="authModal" tabindex="-1" aria-labelledby="authModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header bg-primary text-white">
+                    <h5 class="modal-title" id="authModalLabel">Acceso al Sistema</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <ul class="nav nav-tabs" id="authTabs" role="tablist">
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link active" id="login-tab" data-bs-toggle="tab" data-bs-target="#login" type="button" role="tab">Iniciar Sesión</button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link" id="register-tab" data-bs-toggle="tab" data-bs-target="#register" type="button" role="tab">Registrarse</button>
+                        </li>
+                    </ul>
+                    <div class="tab-content p-3" id="authTabsContent">
+                        <!-- Login -->
+                        <div class="tab-pane fade show active" id="login" role="tabpanel">
+                            <form id="loginForm">
+                                <div class="mb-3">
+                                    <label for="loginEmail" class="form-label">Correo electrónico</label>
+                                    <input type="email" class="form-control" id="loginEmail" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="loginPassword" class="form-label">Contraseña</label>
+                                    <input type="password" class="form-control" id="loginPassword" required>
+                                </div>
+                                <button type="submit" class="btn btn-primary w-100">Ingresar</button>
+                            </form>
+                        </div>
+                        
+                        <!-- Registro -->
+                        <div class="tab-pane fade" id="register" role="tabpanel">
+                            <form id="registerForm">
+                                <div class="mb-3">
+                                    <label for="registerName" class="form-label">Nombre completo</label>
+                                    <input type="text" class="form-control" id="registerName" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="registerEmail" class="form-label">Correo electrónico</label>
+                                    <input type="email" class="form-control" id="registerEmail" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="registerPassword" class="form-label">Contraseña</label>
+                                    <input type="password" class="form-control" id="registerPassword" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="registerConfirm" class="form-label">Confirmar contraseña</label>
+                                    <input type="password" class="form-control" id="registerConfirm" required>
+                                </div>
+                                <button type="submit" class="btn btn-success w-100">Registrarse</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <p class="lead">Sistema de Monitoreo de Calidad del Aire</p>
-            <div class="mt-4">
-                <a href="#problematica" class="btn btn-light btn-lg me-2">Conoce más</a>
-                <a href="#graficas" class="btn btn-outline-light btn-lg">Ver datos</a>
+        </div>
+    </div>
+
+    <!-- Sección Hero -->
+    <header class="hero-header" style="background-image: url('/imagenes/nubes.jpg.crdownload'); background-size: cover; background-position: center; height: 170px;">
+    <section id="inicio" class="hero-section d-flex align-items-center justify-content-center text-center">
+        <div class="hero-overlay"></div>
+        <div class="container hero-content text-white">
+            <div class="hero-title d-flex justify-content-center align-items-center gap-3">
+                <h1 class="mb-0">Air Check</h1>
+            </div>
+            <p class="hero-subtitle mt-3">Sistema de Monitoreo de Calidad del Aire en Tiempo Real</p>
+            <div class="hero-buttons mt-4">
+                <a href="#problematica" class="btn btn-light btn-lg">Conoce más</a>
+                <a href="#graficas" class="btn btn-outline-light btn-lg ms-2">Ver datos</a>
             </div>
         </div>
     </section>
+</header>
+
 
     <!-- Sección Problemática -->
-    <section id="problematica" class="py-5">
+    <section id="problematica" class="py-5 bg-light">
         <div class="container">
-            <h2 class="section-title">Problemática</h2>
-            <div class="row">
-                <div class="col-md-6">
-                    <p>En las zonas cercanas a industrias del estado de Hidalgo, la calidad del aire representa un riesgo para la salud de los habitantes y el medio ambiente debido a la emisión constante de contaminantes. La falta de sistemas de monitoreo en tiempo real dificulta la detección temprana de niveles peligrosos, lo que incrementa la exposición a agentes tóxicos y limita la capacidad de actuar de manera rápida y efectiva.</p>
-                    <p>Esta situación no solo afecta la salud pública, sino que también contribuye al deterioro ambiental y a la falta de información precisa para la toma de decisiones preventivas.</p>
-                </div>
-                <div class="col-md-6">
-                    <img src="/imagenes/contaminación.jpg" alt="Contaminación industrial" class="img-fluid rounded shadow">
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Sección Objetivo -->
-    <section id="objetivo" class="py-5 bg-light">
-        <div class="container">
-            <h2 class="section-title">Objetivo</h2>
             <div class="row align-items-center">
-                <div class="col-md-6 order-md-2">
-                    <div class="card">
-                        <div class="card-body">
-                            <p class="card-text">Desarrollar e implementar un sistema de medición y monitoreo en tiempo real de la calidad del aire en zonas industriales del estado de Hidalgo, utilizando sensores conectados a un sistema de comunicación basado en tecnologías LoRa, ESP NOW y redes móviles 4G, para enviar los datos a un broker y visualizarlos mediante una plataforma Node-RED, permitiendo un seguimiento continuo y una respuesta rápida ante posibles niveles críticos de contaminación.</p>
-                        </div>
+                <div class="col-lg-6">
+                    <h2 class="section-title">Problemática Ambiental</h2>
+                    <p>En las zonas industriales de Hidalgo, la calidad del aire representa un riesgo constante para la salud pública y el medio ambiente.
+                    La emisión de contaminantes sin monitoreo adecuado dificulta la detección temprana de niveles peligrosos, aumentando la exposición a agentes tóxicos y limitando la capacidad de respuesta.</p>
+                    <div class="video-container mt-4">
+                        <iframe src="https://www.youtube.com/embed/qrdFkBKnE_w" frameborder="0" allowfullscreen></iframe>
                     </div>
                 </div>
-                <div class="col-md-6 order-md-1">
-                    <img src="/imagenes/ciudad limpia.jpg" alt="Sistema de monitoreo" class="img-fluid rounded shadow">
+                <div class="col-lg-6">
+                    <img src="imagenes/contaminación.jpg" alt="Contaminación industrial" class="img-fluid rounded shadow">
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Sección Arquitectura -->
-    <section id="arquitectura" class="py-5">
-        <div class="container">
-            <h2 class="section-title">Arquitectura del Sistema</h2>
-            <div class="row">
-                <div class="col-md-6">
-                    <div class="card h-100">
-                        <div class="card-body">
-                            <h5 class="card-title">Diagrama del sistema</h5>
-                            <img src="/imagenes/controlair.png" alt="Diagrama del sistema" class="img-fluid mb-3">
-                            <p class="card-text">El sistema está diseñado para capturar datos de calidad del aire mediante sensores específicos, transmitirlos a través de distintas tecnologías de comunicación, y finalmente visualizarlos en un entorno de monitoreo en línea en tiempo real.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="card h-100">
-                        <div class="card-body">
-                            <h5 class="card-title">Componentes principales</h5>
-                            <ul class="list-group list-group-flush">
-                                <li class="list-group-item">
-                                    <strong>Arduino UNO:</strong> Lectura de sensores MQ-135, MQ-2 y DHT11
-                                </li>
-                                <li class="list-group-item">
-                                    <strong>Heltec LoRa 32 V3:</strong> Transmisión de datos mediante LoRa
-                                </li>
-                                <li class="list-group-item">
-                                    <strong>LilyGO TTGO SIM7600:</strong> Conexión 4G y envío de datos a la nube
-                                </li>
-                                <li class="list-group-item">
-                                    <strong>Node-RED:</strong> Visualización de datos en dashboards
-                                </li>
-                            </ul>
-                        </div>
+    <!-- Sección Proyecto -->
+   <section id="proyecto" class="py-3">
+    <div class="container">
+        <h2 class="section-title text-center">Nuestro Proyecto</h2>
+        <div class="row mt-3">
+            <div class="col-md-6">
+                <div class="card mb-3 h-100">
+                    <div class="card-body">
+                        <h3 class="card-title"><i class="fas fa-bullseye me-2"></i>Objetivo</h3>
+                        <p class="card-text">Desarrollar un sistema integral de monitoreo en tiempo real que combine tecnologías IoT (LoRa, ESP-NOW, 4G) con una plataforma de visualización Node-RED para proporcionar datos precisos y permitir respuestas rápidas ante contaminación ambiental.</p>
+                        <img src="/imagenes/calidad del aire.jpg" alt="Diagrama del sistema" class="img-fluid mb-2" width="500px">
                     </div>
                 </div>
             </div>
-            
-            <div class="row mt-4">
-                <div class="col-12">
-                    <div class="card">
-                        <div class="card-body">
-                            <h5 class="card-title">Protocolos de Comunicación</h5>
-                            <div class="row">
-                                <div class="col-md-3 col-6 text-center mb-3">
-                                    <div class="p-3 border rounded">
-                                        <i class="fas fa-exchange-alt fa-3x mb-2 text-primary"></i>
-                                        <h6>UART</h6>
-                                        <p class="small">Comunicación serial entre Arduino y Heltec</p>
-                                    </div>
-                                </div>
-                                <div class="col-md-3 col-6 text-center mb-3">
-                                    <div class="p-3 border rounded">
-                                        <i class="fas fa-wifi fa-3x mb-2 text-primary"></i>
-                                        <h6>LoRa</h6>
-                                        <p class="small">Comunicación inalámbrica de largo alcance</p>
-                                    </div>
-                                </div>
-                                <div class="col-md-3 col-6 text-center mb-3">
-                                    <div class="p-3 border rounded">
-                                        <i class="fas fa-bolt fa-3x mb-2 text-primary"></i>
-                                        <h6>ESP-NOW</h6>
-                                        <p class="small">Protocolo de baja latencia entre ESP32</p>
-                                    </div>
-                                </div>
-                                <div class="col-md-3 col-6 text-center mb-3">
-                                    <div class="p-3 border rounded">
-                                        <i class="fas fa-cloud fa-3x mb-2 text-primary"></i>
-                                        <h6>MQTT</h6>
-                                        <p class="small">Protocolo ligero para IoT</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+            <div class="col-md-6">
+                <div class="card mb-3 h-100">
+                    <div class="card-body">
+                        <h3 class="card-title"><i class="fas fa-project-diagram me-2"></i>Arquitectura</h3>
+                        <img src="imagenes/controlair.png" alt="Diagrama del sistema" class="img-fluid mb-2">
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item">1. Sensores de calidad de aire</li>
+                            <li class="list-group-item">2. Procesamiento con Arduino</li>
+                            <li class="list-group-item">3. Comunicación inalámbrica</li>
+                            <li class="list-group-item">4. Transmisión 4G</li>
+                            <li class="list-group-item">5. Visualización en Node-RED</li>
+                        </ul>
                     </div>
                 </div>
             </div>
         </div>
-    </section>
-
+    </div>
+</section>
     <!-- Sección Sensores -->
     <section id="sensores" class="py-5 bg-light">
         <div class="container">
             <h2 class="section-title">Sensores Utilizados</h2>
             <div class="row">
-                <!-- Sensor MQ-135 -->
-                <div class="col-md-4">
+                <div class="col-md-4 mb-4">
                     <div class="card h-100">
-                        <img src="/imagenes/mq135.jpg" class="card-img-top sensor-img" alt="Sensor MQ-135">
+                        <img src="imagenes/mq135.jpg" class="card-img-top sensor-img" alt="Sensor MQ-135" width="80px">
                         <div class="card-body">
                             <h5 class="card-title">MQ-135 - Calidad del Aire</h5>
                             <p class="card-text">Detecta gases como amoníaco (NH3), óxidos de nitrógeno (NOx), alcoholes, benceno, humo y gases nocivos en el aire.</p>
                             <ul class="list-group list-group-flush">
-                                <li class="list-group-item"><strong>Voltaje:</strong> 5V DC</li>
-                                <li class="list-group-item"><strong>Consumo:</strong> 150 mA</li>
-                                <li class="list-group-item"><strong>Tiempo de respuesta:</strong>10 segundos</li>
+                                <li class="list-group-item"><i class="fas fa-bolt me-2"></i> Voltaje: 5V DC</li>
+                                <li class="list-group-item"><i class="fas fa-tachometer-alt me-2"></i> Tiempo de respuesta: 10 segundos</li>
                             </ul>
                         </div>
                     </div>
                 </div>
                 
-                <!-- Sensor MQ-2 -->
-                <div class="col-md-4">
+                <div class="col-md-4 mb-4">
                     <div class="card h-100">
-                        <img src="/imagenes/mq2.jpg" class="card-img-top sensor-img" alt="Sensor MQ-2">
+                        <img src="imagenes/mq2.jpg" class="card-img-top sensor-img" alt="Sensor MQ-2" width="80px">
                         <div class="card-body">
                             <h5 class="card-title">MQ-2 - Gases Inflamables</h5>
-                            <p class="card-text">Detecta gases como LPG (gas licuado de petróleo), humo, alcohol, propano, hidrógeno y metano.</p>
+                            <p class="card-text">Detecta gases como LPG, humo, alcohol, propano, hidrógeno y metano.</p>
                             <ul class="list-group list-group-flush">
-                                <li class="list-group-item"><strong>Voltaje:</strong> 5V DC</li>
-                                <li class="list-group-item"><strong>Consumo:</strong> ~150 mA</li>
-                                <li class="list-group-item"><strong>Tiempo de respuesta:</strong> 10 segundos</li>
+                                <li class="list-group-item"><i class="fas fa-bolt me-2"></i> Voltaje: 5V DC</li>
+                                <li class="list-group-item"><i class="fas fa-tachometer-alt me-2"></i> Tiempo de respuesta: 10 segundos</li>
                             </ul>
                         </div>
                     </div>
                 </div>
                 
-                <!-- Sensor DHT11 -->
-                <div class="col-md-4">
+                <div class="col-md-4 mb-4">
                     <div class="card h-100">
-                        <img src="/imagenes/sensor polvo.webp" class="card-img-top sensor-img" alt="Sensor DHT11">
+                        <img src="/imagenes/sensor polvo.jpg" class="card-img-top sensor-img" alt="Sensor GP2Y1010AU0F" width="80px">
                         <div class="card-body">
-                            <h5 class="card-title">Sensor Gp2y1010au0f</h5>
-                            <p class="card-text">Permite medir de forma sencilla la concentración de polvo en el aire.</p>
+                            <h5 class="card-title">GP2Y1010AU0F - Polvo</h5>
+                            <p class="card-text">Mide la concentración de partículas de polvo en el aire.</p>
                             <ul class="list-group list-group-flush">
-                                <li class="list-group-item"><strong>Voltaje:</strong> 5.5V</li>
-                                <li class="list-group-item"><strong>Consumo:</strong> 11 mA durante medición</li>
-                                <li class="list-group-item"><strong>Frecuencia:</strong> 100Hz (10 lectura/segundo)</li>
+                                <li class="list-group-item"><i class="fas fa-bolt me-2"></i> Voltaje: 5.5V</li>
+                                <li class="list-group-item"><i class="fas fa-tachometer-alt me-2"></i> Frecuencia: 10 lecturas/segundo</li>
                             </ul>
                         </div>
                     </div>
@@ -242,52 +228,46 @@
         <div class="container">
             <h2 class="section-title">Hardware Utilizado</h2>
             <div class="row">
-                <!-- Arduino UNO -->
-                <div class="col-md-4">
+                <div class="col-md-4 mb-4">
                     <div class="card h-100">
-                        <img src="/imagenes/arduino uno.webp" class="card-img-top" alt="Arduino UNO">
+                        <img src="imagenes/arduino uno.webp" class="card-img-top" alt="Arduino UNO" width="80px">
                         <div class="card-body">
                             <h5 class="card-title">Arduino UNO</h5>
-                            <p class="card-text">Placa de desarrollo basada en el microcontrolador ATmega328P para lectura de sensores.</p>
+                            <p class="card-text">Placa de desarrollo para lectura de sensores.</p>
                             <ul class="list-group list-group-flush">
-                                <li class="list-group-item"><strong>Microcontrolador:</strong> ATmega328P</li>
-                                <li class="list-group-item"><strong>Voltaje:</strong> 5V</li>
-                                <li class="list-group-item"><strong>Pines I/O:</strong> 14 digitales, 6 analógicos</li>
-                                <li class="list-group-item"><strong>Memoria:</strong> 32KB Flash, 2KB SRAM</li>
+                                <li class="list-group-item"><i class="fas fa-microchip me-2"></i> ATmega328P</li>
+                                <li class="list-group-item"><i class="fas fa-memory me-2"></i> 32KB Flash, 2KB SRAM</li>
+                                <li class="list-group-item"><i class="fas fa-plug me-2"></i> 14 E/S digitales, 6 analógicas</li>
                             </ul>
                         </div>
                     </div>
                 </div>
                 
-                <!-- Heltec LoRa 32 V3 -->
-                <div class="col-md-4">
+                <div class="col-md-4 mb-4">
                     <div class="card h-100">
-                        <img src="/imagenes/lora heltec.jpg" class="card-img-top" alt="Heltec LoRa 32 V3">
+                        <img src="imagenes/lora heltec.jpg" class="card-img-top" alt="Heltec LoRa 32 V3" width="80px">
                         <div class="card-body">
                             <h5 class="card-title">Heltec LoRa 32 V3</h5>
-                            <p class="card-text">Placa con ESP32, WiFi, Bluetooth y módulo LoRa para transmisión inalámbrica.</p>
+                            <p class="card-text">Placa con ESP32 y módulo LoRa para transmisión inalámbrica.</p>
                             <ul class="list-group list-group-flush">
-                                <li class="list-group-item"><strong>Microcontrolador:</strong> ESP32 (240 MHz)</li>
-                                <li class="list-group-item"><strong>Memoria:</strong> 8MB Flash, 520KB RAM</li>
-                                <li class="list-group-item"><strong>Conectividad:</strong> WiFi, Bluetooth BLE, LoRa</li>
-                                <li class="list-group-item"><strong>Pantalla:</strong> OLED 0.96" integrada</li>
+                                <li class="list-group-item"><i class="fas fa-microchip me-2"></i> ESP32 (240 MHz)</li>
+                                <li class="list-group-item"><i class="fas fa-wifi me-2"></i> WiFi + Bluetooth + LoRa</li>
+                                <li class="list-group-item"><i class="fas fa-memory me-2"></i> 8MB Flash, 520KB RAM</li>
                             </ul>
                         </div>
                     </div>
                 </div>
                 
-                <!-- LilyGO TTGO SIM7600 -->
-                <div class="col-md-4">
+                <div class="col-md-4 mb-4">
                     <div class="card h-100">
-                        <img src="/imagenes/lilygo.jpg" class="card-img-top" alt="LilyGO TTGO SIM7600">
+                        <img src="imagenes/lilygo.jpg" class="card-img-top" alt="LilyGO TTGO SIM7600" width="80px">
                         <div class="card-body">
                             <h5 class="card-title">LilyGO TTGO SIM7600</h5>
                             <p class="card-text">Placa con ESP32 y módem 4G LTE/GPS para conectividad celular.</p>
                             <ul class="list-group list-group-flush">
-                                <li class="list-group-item"><strong>Microcontrolador:</strong> ESP32 (240 MHz)</li>
-                                <li class="list-group-item"><strong>Conectividad:</strong> 4G LTE, 3G, 2G, GPS</li>
-                                <li class="list-group-item"><strong>Memoria:</strong> 4MB Flash, 520KB RAM</li>
-                                <li class="list-group-item"><strong>Batería:</strong> Soporte para LiPo 3.7V</li>
+                                <li class="list-group-item"><i class="fas fa-sim-card me-2"></i> 4G LTE + GPS</li>
+                                <li class="list-group-item"><i class="fas fa-memory me-2"></i> 4MB Flash, 520KB RAM</li>
+                                <li class="list-group-item"><i class="fas fa-battery-full me-2"></i> Soporte para LiPo</li>
                             </ul>
                         </div>
                     </div>
@@ -296,46 +276,128 @@
         </div>
     </section>
 
-    <!-- Sección Gráficas -->
-    <section id="graficas" class="py-5 bg-light">
+    <!-- Sección Ubicación -->
+    <section id="ubicacion" class="py-5">
         <div class="container">
-            <h2 class="section-title">Datos de Monitoreo</h2>
+            <h2 class="section-title">Nuestra Ubicación</h2>
             <div class="row">
-                <div class="col-md-6">
-                    <div class="card">
+                <div class="col-md-6 mb-4">
+                    <div class="card h-100">
                         <div class="card-body">
-                            <h5 class="card-title">Niveles de Contaminantes</h5>
-                            <div class="chart-container">
-                                <canvas id="lineChart"></canvas>
+                            <h5 class="card-title"><i class="fas fa-map-marker-alt me-2"></i>Sede Principal</h5>
+                            <div class="map-container">
+                                <iframe src="https://maps.app.goo.gl/WhKtPMFGDtrPCpHt6" allowfullscreen="" loading="lazy"></iframe>
                             </div>
-                            <p class="card-text">Variación de los niveles de contaminantes detectados por los sensores MQ-135 y MQ-2 en las últimas 24 horas.</p>
+                            <div class="mt-3">
+                                <p><i class="fas fa-location-dot me-2"></i> 7ma Demarcación, 42700 Mixquiahuala, Hgo.</p>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-6">
-                    <div class="card">
+                <div class="col-md-6 mb-4">
+                    <div class="card h-100">
                         <div class="card-body">
-                            <h5 class="card-title">Distribución de Contaminantes</h5>
-                            <div class="chart-container">
-                                <canvas id="pieChart"></canvas>
+                            <h5 class="card-title"><i class="fas fa-clock me-2"></i>Horario de Atención</h5>
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                    Lunes a Viernes
+                                    <span class="badge bg-primary rounded-pill">8:00 - 18:00 hrs</span>
+                                </li>
+                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                    Sábados
+                                    <span class="badge bg-primary rounded-pill">9:00 - 14:00 hrs</span>
+                                </li>
+                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                    Domingos
+                                    <span class="badge bg-secondary rounded-pill">Cerrado</span>
+                                </li>
+                            </ul>
+                            <div class="mt-4">
+                                <h5><i class="fas fa-images me-2"></i>Instalaciones</h5>
+                                <div id="facilityCarousel" class="carousel slide" data-bs-ride="carousel">
+                                    <div class="carousel-inner rounded">
+                                        <div class="carousel-item active">
+                                            <img src="/imagenes/itsoeh 1.avif" class="d-block w-100" alt="Instalaciones">
+                                        </div>
+                                        <div class="carousel-item">
+                                            <img src="/imagenes/itsoeh 2.jpg" class="d-block w-100" alt="Instalaciones">
+                                        </div>
+                                        <div class="carousel-item">
+                                            <img src="/imagenes/itsoeh 3.jpg" class="d-block w-100" alt="Instalaciones">
+                                        </div>
+                                        <div class="carousel-item">
+                                            <img src="/imagenes/itsoeh 4.jpeg" class="d-block w-100" alt="Instalaciones">
+                                        </div>
+                                    </div>
+                                    <button class="carousel-control-prev" type="button" data-bs-target="#facilityCarousel" data-bs-slide="prev">
+                                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                    </button>
+                                    <button class="carousel-control-next" type="button" data-bs-target="#facilityCarousel" data-bs-slide="next">
+                                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                    </button>
+                                </div>
                             </div>
-                            <p class="card-text">Porcentaje de los diferentes tipos de contaminantes detectados en el área de monitoreo.</p>
                         </div>
                     </div>
                 </div>
             </div>
-            
-            <div class="row mt-4">
-                <div class="col-12">
-                    <div class="card">
+        </div>
+    </section>
+
+    <!-- Sección Contacto -->
+    <section id="contacto" class="py-5 bg-light">
+        <div class="container">
+            <h2 class="section-title">Contáctanos</h2>
+            <div class="row">
+                <div class="col-md-6 mb-4">
+                    <div class="card h-100">
                         <div class="card-body">
-                            <h5 class="card-title">Dashboard en Tiem Real</h5>
-                            <div class="ratio ratio-16x9">
-                                <iframe src="https://via.placeholder.com/800x450?text=Node-RED+Dashboard" allowfullscreen></iframe>
+                            <h5 class="card-title"><i class="fas fa-info-circle me-2"></i>Información de Contacto</h5>
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item">
+                                    <i class="fas fa-envelope me-2"></i> aircheckmx@gmail.com
+                                </li>
+                                <li class="list-group-item">
+                                    <i class="fas fa-phone me-2"></i> +52 772 119 0352
+                                </li>
+                                <li class="list-group-item">
+                                    <i class="fas fa-map-marker-alt me-2"></i> Mixquiahuala, Hidalgo
+                                </li>
+                            </ul>
+                            <div class="mt-4">
+                                <h5><i class="fas fa-share-alt me-2"></i>Redes Sociales</h5>
+                                <div class="social-icons">
+                                    <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                                    <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                                    <a href="#" class="social-icon"><i class="fab fa-tiktok"></i></a>
+                                </div>
                             </div>
-                            <div class="mt-3">
-                                <a href="#" class="btn btn-primary">Ver dashboard completo</a>
-                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-4">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h5 class="card-title"><i class="fas fa-paper-plane me-2"></i>Formulario de Contacto</h5>
+                            <form id="contactForm">
+                                <div class="mb-3">
+                                    <label for="name" class="form-label">Nombre</label>
+                                    <input type="text" class="form-control" id="name" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="email" class="form-label">Correo electrónico</label>
+                                    <input type="email" class="form-control" id="email" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="subject" class="form-label">Asunto</label>
+                                    <input type="text" class="form-control" id="subject" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="message" class="form-label">Mensaje</label>
+                                    <textarea class="form-control" id="message" rows="4" required></textarea>
+                                </div>
+                                <button type="submit" class="btn btn-primary">Enviar Mensaje</button>
+                            </form>
                         </div>
                     </div>
                 </div>
@@ -344,22 +406,23 @@
     </section>
 
     <!-- Footer -->
-    <footer class="py-4">
+    <footer class="py-4 bg-dark text-white">
         <div class="container">
             <div class="row">
-                <div class="col-md-4">
+                <div class="col-md-4 mb-4">
                     <h5>Instituto Tecnológico Superior del Occidente del Estado de Hidalgo</h5>
                     <p>Ingeniería en Tecnologías de la Información y Comunicaciones</p>
                 </div>
-                <div class="col-md-4">
+                <div class="col-md-4 mb-4">
                     <h5>Integrantes</h5>
-                    <li>Adrian Moreno Mendez</li>
-                    <li>Edwin Álvarez Hernández</li>
-                    <li>Alinne Hernández Lopez</li>
-                    <li>Adolfo Martinez Costeño</li>
+                        <li>Adrian Moreno Mendez</li>
+                        <li>Edwin Álvarez Hernández</li>
+                        <li>Alinne Hernández Lopez</li>
+                        <li>Adolfo Martinez Costeño</li>
+                    </ul>
                     <p>Semestre: 6 Grupo: A</p>
                 </div>
-                <div class="col-md-4">
+                <div class="col-md-4 mb-4">
                     <h5>Asesor</h5>
                     <li>Dr. Francisco Javier Cuadros Romero</li>
                     <p>Periodo: Enero - mayo 2025</p>
@@ -367,13 +430,21 @@
             </div>
             <hr class="my-4 bg-light">
             <div class="text-center">
-                <p class="mb-0">© 2025 Control Air. Todos los derechos reservados.</p>
+                <div class="social-icons mb-3">
+                    <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-tiktok"></i></a>
+                </div>
+                <p class="mb-0">© 2025 Air Check - Sistema de Monitoreo de Calidad del Aire. Todos los derechos reservados.</p>
             </div>
         </div>
     </footer>
-    <!-- Bootstrap JS y dependencias -->
+
+    <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
-    <!-- Chart.js para gráficas -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/charts.js"></script>
+    <script src="js/database.js"></script>
 </body>
 </html>

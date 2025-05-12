@@ -1,56 +1,284 @@
+/* Reset y estilos base */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
-        body {
-            font-family: 'Roboto', sans-serif;
-            background-color: #c0d6ec;
-            color: #000000;
-        }
-        .navbar-brand img {
-            height: 50px;
-        }
-        .project-logo {
-            height: 70px;
-        }
-        .hero-section {
-            background: linear-gradient(135deg, #4f97e9 0%,#63a2d6 51%,#abd2f3 100%);
-            color: rgb(0, 0, 0);
-            padding: 80px 0;
-            margin-bottom: 30px;
-        }
-        .section-title {
-            border-bottom: 2px solid #67aae1;
-            padding-bottom: 10px;
-            margin-bottom: 30px;
-            color: #2989d8;
-        }
-        .card {
-            margin-bottom: 30px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-            transition: transform 0.3s;
-        }
-        .card:hover {
-            transform: translateY(-5px);
-        }
-        .sensor-img {
-            max-height: 200px;
-            object-fit: contain;
-            margin: 0 auto;
-            display: block;
-        }
-        .chart-container {
-            height: 400px;
-            margin-bottom: 30px;
-        }
-        footer {
-            background-color: #69acee;
-            color: rgb(19, 19, 19);
-            padding: 30px 0;
-            margin-top: 50px;
-        }
-        @media (max-width: 768px) {
-            .hero-section {
-                padding: 50px 0;
-            }
-            .project-logo {
-                height: 40px;
-            }
-        }
+:root {
+  --primary-color: #2980b9;
+  --secondary-color: #2c3e50;
+  --accent-color: #e74c3c;
+  --light-color: #ecf0f1;
+  --dark-color: #2c3e50;
+  --success-color: #27ae60;
+  --warning-color: #f39c12;
+  --danger-color: #e74c3c;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  color: #333;
+  background-color: #f8f9fa;
+  line-height: 1.6;
+  padding-top: 72px; /* Para compensar la navbar fija */
+}
+
+/* Barra de navegación */
+.navbar {
+  background-color: var(--secondary-color);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  padding: 0.8rem 1rem;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1000;
+}
+
+.navbar-brand {
+  display: flex;
+  align-items: center;
+  font-weight: 700;
+  font-size: 1.3rem;
+  color: white;
+}
+
+.navbar-brand img {
+  height: 40px;
+  margin-right: 10px;
+}
+
+.nav-link {
+  font-weight: 500;
+  padding: 0.5rem 1rem;
+  color: rgba(255, 255, 255, 0.8);
+  transition: all 0.3s ease;
+}
+
+.nav-link:hover {
+  color: white;
+}
+
+.user-login {
+  color: white;
+  padding: 0.5rem;
+  cursor: pointer;
+  font-size: 1.2rem;
+}
+
+/* Sección Hero */
+.hero-section {
+  position: relative;
+  background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
+              url('../imagenes/fondo-controlair.jpg') no-repeat center center;
+  background-size: cover;
+  color: white;
+  padding: 120px 0;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.hero-title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-bottom: 1.5rem;
+}
+
+.hero-title h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin: 0 15px;
+}
+
+.hero-logo {
+  height: 70px;
+  width: auto;
+}
+
+.hero-subtitle {
+  font-size: 1.3rem;
+  margin-bottom: 2rem;
+}
+
+.btn {
+  padding: 10px 25px;
+  border-radius: 30px;
+  font-weight: 600;
+  transition: all 0.3s;
+  margin: 0 10px;
+}
+
+.btn-light {
+  background-color: white;
+  color: var(--dark-color);
+}
+
+.btn-outline-light {
+  border: 2px solid white;
+}
+
+.btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Secciones */
+.section {
+  padding: 80px 0;
+}
+
+.section-title {
+  font-size: 2.2rem;
+  font-weight: 700;
+  margin-bottom: 2.5rem;
+  color: var(--primary-color);
+  text-align: center;
+  position: relative;
+}
+
+.section-title::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 4px;
+  background-color: var(--accent-color);
+}
+
+.bg-light {
+  background-color: var(--light-color);
+}
+
+/* Tarjetas */
+.card {
+  border: none;
+  border-radius: 10px;
+  overflow: hidden;
+  transition: all 0.3s;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  margin-bottom: 30px;
+  height: 100%;
+}
+
+.card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+}
+
+.card-img-top {
+  height: 200px;
+  object-fit: cover;
+}
+
+.sensor-img {
+  height: 180px;
+  width: auto;
+  object-fit: contain;
+  display: block;
+  margin: 0 auto;
+  padding: 15px;
+}
+
+/* Gráficas */
+.chart-container {
+  position: relative;
+  height: 300px;
+  width: 100%;
+  margin: 20px 0;
+}
+
+/* Mapa */
+.map-container {
+  height: 350px;
+  width: 100%;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+/* Formulario de contacto */
+#contactForm .form-control {
+  padding: 12px 15px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  border: 1px solid #ddd;
+}
+
+/* Footer */
+footer {
+  background-color: var(--secondary-color);
+  color: white;
+  padding: 50px 0 20px;
+}
+
+.social-icons {
+  display: flex;
+  justify-content: center;
+  margin: 20px 0;
+}
+
+.social-icons a {
+  color: white;
+  font-size: 1.5rem;
+  margin: 0 10px;
+  transition: all 0.3s;
+}
+
+.social-icons a:hover {
+  color: var(--accent-color);
+  transform: translateY(-3px);
+}
+
+/* Modal */
+.modal-content {
+  border-radius: 15px;
+  overflow: hidden;
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+  .hero-title h1 {
+    font-size: 2.2rem;
+  }
+  
+  .hero-logo {
+    height: 60px;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-section {
+    padding: 100px 0;
+  }
+  
+  .hero-title {
+    flex-direction: column;
+  }
+  
+  .hero-title h1 {
+    margin: 10px 0;
+  }
+  
+  .section {
+    padding: 60px 0;
+  }
+}
+
+@media (max-width: 576px) {
+  .hero-title h1 {
+    font-size: 1.8rem;
+  }
+  
+  .hero-subtitle {
+    font-size: 1.1rem;
+  }
+  
+  .btn {
+    display: block;
+    width: 80%;
+    margin: 10px auto;
+  }
+}
